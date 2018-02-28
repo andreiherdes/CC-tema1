@@ -217,6 +217,7 @@
         function executeRequest(request) {
             request.execute(function (response) {
                 console.log(response);
+                document.getElementById('divForLinks').innerHTML = "";
                 for (i = 0; i<response.items.length; i++) {
                     var youtubeVideoLink = "https://www.youtube.com/watch?v=" + response.items[i].id.videoId;
                     console.log(youtubeVideoLink)
@@ -292,10 +293,10 @@
     <br>
     <button type="submit" onclick="userAction()">Generate randomness!</button>
     <br>
-
-    <div id="divForLinks" style="margin-top: 25px">
-        <button type="submit" onclick="defineRequest()">Search on youtube</button>
-        <br>
+    <button type="submit" onclick="defineRequest()" style="margin-top: 10px">Search on youtube</button>
+    <br>
+    <div id="divForLinks" style="margin-top: 10px">
+        
 
     </div>
 </body>
