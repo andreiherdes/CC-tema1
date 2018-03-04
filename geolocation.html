@@ -51,7 +51,7 @@
                     document.getElementById("longitude").value = pos.lng;
 
                     infoWindow.setPosition(pos);
-                    infoWindow.setContent('Location found.');
+                    infoWindow.setContent('Your location.');
                     infoWindow.open(map);
                     map.setCenter(pos);
                 }, function () {
@@ -156,12 +156,12 @@
                 var latitude = document.getElementById("latitude").value;
                 var longitude = document.getElementById("longitude").value;
                 var searchField = document.getElementById("generatedWord").value;
-                var radius = document.getElementById("radius").value;
+                var radius = document.getElementById("radius").value + "mi";
 
                 buildApiRequest('GET',
                     '/youtube/v3/search', {
                         'location': latitude + ',' + longitude,
-                        'locationRadius': '50mi',
+                        'locationRadius': radius,
                         'part': 'snippet',
                         'q': searchField,
                         'type': 'video'
